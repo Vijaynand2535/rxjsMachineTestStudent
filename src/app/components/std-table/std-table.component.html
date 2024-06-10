@@ -1,0 +1,38 @@
+
+
+<div class="table-responsive mt-4">
+    <table class="table table-bordered bg-dark text-white" *ngIf="stdInfo.length; else nostd">
+        <thead>
+            <tr>
+                <th>Sr no</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Edit</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let std of stdInfo; let i = index">
+                <td>{{i + 1}}</td>
+                <td>{{std.fname}}</td>
+                <td>{{std.lname}}</td>
+                <td>{{std.email}}</td>
+                <td>{{std.contact}}</td>
+                <td>
+                    <button class="btn btn-primary btn-sm" (click)="onEdit(std)">Edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger btn-sm" (click)="ondelete(std)">Delete</button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #nostd>
+    <p class="alert alert-warning">No students data added yet !!</p>
+</ng-template>
